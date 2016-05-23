@@ -6,38 +6,41 @@ from features import TagFrequency
 
 class OnlineKMeans(object):
     def __init__(self, n_clusters=8, batch_size=None,
-                 max_std_dev=5.0, min_cluster_points=30, vectorizer=TagFrequency()):
+                 max_std_dev=5.0, min_cluster_points=30,
+                 vectorizer=TagFrequency(), centers=None):
         """
         Parameters
         ----------
         n_clusters : int
-            Number of clusters to use for KMeans
+            Number of clusters to use for KMeans.
         batch_size : int
-            Update clusters only when the batch reaches this size
-            Default: batch_size = 10*n_clusters
+            Update clusters only when the batch reaches this size.
+            Default: batch_size = 10*n_clusters.
         max_std_dev : float
-            For outlier detection, do not cluster measures that whose
-            distance exceeds 5 times the std dev of the cluster
-            Set to None to disable outlier detection
-            This value can be updated at any point after object creation
+            For outlier detection, do not cluster measures whose
+            distance exceeds 5 times the std dev of the cluster.
+            Set to None to disable outlier detection.
+            This value can be updated at any point after object creation.
         min_cluster_points : int
             Do not perform outlier detection on clusters that have less than
-            this amount of points
+            this amount of points.
         vectorizer : callable
             Takes an scrapely.htmlpage.HtmlPage and returns a numpy array.
             Different pages can return different array sizes. If the vector
             is missing values they are assumed to be zero.
         """
         self.vectorizer = vectorizer
-        self.dimension = 0
+        self.dimension = vectorizer.dimension
 
         if batch_size is None:
             self.batch_size = 10*n_clusters
         else:
             self.batch_size = batch_size
         self.batch = []
-        self.n_clusters = n_clusters
-        self.kmeans = MiniBatchKMeans(self.n_clusters)
+        self.n_clusters = n_clusters if centers is None else centers.shape[0]
+        self.kmeans = MiniBatchKMeans(
+            self.n_clusters,
+            init=centers if centers is not None else 'k-means++')
 
         # outlier_detection parameters
         self._sum_sqr_dist = np.zeros((self.n_clusters,))
@@ -113,3 +116,13 @@ class OnlineKMeans(object):
         if self.outlier_detection and self._find_outliers(X, y)[0]:
             return -1
         return y[0]
+
+
+def kmeans_from_samples(samples):
+    vectorizer = TagFrequency()
+    centers = np.array(map(vectorizer, samples))
+    n_clusters = len(samples)
+    return OnlineKMeans(
+        n_clusters=n_clusters,
+        centers=centers,
+        vectorizer=vectorizer)
