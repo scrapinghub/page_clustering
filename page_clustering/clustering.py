@@ -1,7 +1,14 @@
+import scrapely.htmlpage as hp
 from sklearn.cluster import MiniBatchKMeans
 import numpy as np
 
 from features import TagFrequency
+
+
+def reshape_cols(X, n):
+    Y = np.zeros((X.shape[0], n))
+    Y[:, :X.shape[1]] = X
+    return Y
 
 
 class OnlineKMeans(object):
@@ -94,9 +101,11 @@ class OnlineKMeans(object):
             # update dimension of cluster centers
             if dimension_new > self.dimension:
                 if self.is_fit:
-                    centers_new = np.zeros((self.n_clusters, dimension_new))
-                    centers_new[:, :self.dimension] = self.kmeans.cluster_centers_
-                    self.kmeans.cluster_centers_ = centers_new
+                    self.kmeans.cluster_centers_ = reshape_cols(
+                        self.kmeans.cluster_centers_, dimension_new)
+                elif isinstance(self.kmeans.init, np.ndarray):
+                    self.kmeans.init = reshape_cols(
+                        self.kmeans.init, dimension_new)
                 self.dimension = dimension_new
             # filter out outliers
             if self.outlier_detection:
@@ -119,10 +128,16 @@ class OnlineKMeans(object):
 
 
 def kmeans_from_samples(samples):
+    pages = [
+        hp.HtmlPage(url=t.get('url'), body=t.get('original_body', t.get('annotated_body')))
+        for t in samples]
+    n_clusters = len(pages)
     vectorizer = TagFrequency()
-    centers = np.array(map(vectorizer, samples))
-    n_clusters = len(samples)
+    centers = map(vectorizer, pages)
+    X = np.zeros((len(centers), vectorizer.dimension))
+    for i, c in enumerate(centers):
+        X[i, :len(c)] = c
     return OnlineKMeans(
         n_clusters=n_clusters,
-        centers=centers,
+        centers=X,
         vectorizer=vectorizer)
