@@ -19,5 +19,5 @@ that are highly improbable to belong to any cluster.
 	y = clt.classify(yet_another_page)
 
 # Demo
-    wget -r --quota=15M https://news.ycombinator.com
+    wget -r --quota=5M https://news.ycombinator.com
     python demo.py news.ycombinator.com
