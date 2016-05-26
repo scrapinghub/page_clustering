@@ -6,6 +6,7 @@ from features import TagFrequency
 
 
 def reshape_cols(X, n):
+    """Append with zero columns X until it has n columns"""
     Y = np.zeros((X.shape[0], n))
     Y[:, :X.shape[1]] = X
     return Y
@@ -119,7 +120,10 @@ class OnlineKMeans(object):
                 self._sum_sqr_dist[y] += d
 
     def classify(self, page):
-        """Return cluster index or -1 if outlier and outlier detection is active"""
+        """Return cluster index or -1 if outlier and outlier detection is active.
+
+        page : scrapely.htmlpage.HtmlPage
+        """
         X = self.vectorizer(page)[:self.dimension].reshape(1, -1)
         y = self.kmeans.predict(X)
         if self.outlier_detection and self._find_outliers(X, y)[0]:
@@ -128,9 +132,24 @@ class OnlineKMeans(object):
 
 
 def kmeans_from_samples(samples):
-    pages = [
-        hp.HtmlPage(url=t.get('url'), body=t.get('original_body', t.get('annotated_body')))
-        for t in samples]
+    """Initializes and returns the clustering using the provided samples.
+
+    samples : Iterable[sample]
+        A sample can be either:
+            - a dict with `url` and `original_body` keys.
+            - an string with the page body
+
+    Returns : OnlineKMeans
+    """
+    def build_htmlpage(sample):
+        if isinstance(sample, (str, unicode)):
+            url = ''
+            body = sample
+        else:
+            url = sample.get('url')
+            body = sample.get('original_body', sample.get('annotated_body'))
+        return hp.HtmlPage(url=url, body=body)
+    pages = map(build_htmlpage, samples)
     n_clusters = len(pages)
     vectorizer = TagFrequency()
     centers = map(vectorizer, pages)
