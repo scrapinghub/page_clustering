@@ -14,6 +14,9 @@ that are highly improbable to belong to any cluster.
 	for page in pages:
 	    clt.add_page(page)
 	y = clt.classify(new_page)
+	for page in more_pages:
+	    clt.add_page(page)
+	y = clt.classify(yet_another_page)
 
 # Demo
     wget -r --quota=15M https://news.ycombinator.com
