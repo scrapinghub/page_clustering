@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>Users - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">    
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Users">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="Q&amp;A for professional and enthusiast programmers">
+    <meta property="og:url" content="http://stackoverflow.com/users?page=1&amp;tab=reputation&amp;filter=week">
+
+    
+    
+    <script src="Users%20-%201%20-%20Stack%20Overflow_files/quant.js" async=""></script><script src="Users%20-%201%20-%20Stack%20Overflow_files/beacon.js" async=""></script><script src="Users%20-%201%20-%20Stack%20Overflow_files/analytics.js" async=""></script><script src="Users%20-%201%20-%20Stack%20Overflow_files/jquery.js"></script><style type="text/css">:root div[id^="adzerk"],
+:root #header + #content > #left > #rlblock_left,
+:root #content > #right > .dose > .dosesingle,
+:root #content > #center > .dose > .dosesingle
+{display:none !important;}</style><style>iframe[src="https://ssum-sec.casalemedia.com/usermatch?s=183712&cb=https%3A%2F%2Fengine.adzerk.net%2Fudb%2F22%2Fsync%2Fi.gif%3FpartnerId%3D1%26userId%3D"],
+img[src="//clc.stackoverflow.com/to.gif"]
+{display:none !important;}</style>
+    <script src="Users%20-%201%20-%20Stack%20Overflow_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="Users%20-%201%20-%20Stack%20Overflow_files/all.css">
+
+    <meta name="robots" content="noindex">
+    <script>
+    $(function () {
+                $("#userfilter").val("").focus().typeWatch({ highlight: true, wait: 500, captureLength: -1, callback: finished(false) });
+        var request = null;
+        function finished(all) {
+
+            var showingAll = all;
+
+            return function (txt) {
+                var search = $.trim(txt.toLowerCase());
+                if (search.length < 3 && showingAll) { return; }
+
+                    var url = "/users/filter";
+                    if (search.length < 3) {
+                        url = "/users/filter/all";
+                        showingAll = true;
+                    }
+
+                    var spinner = $("#userfilter").addSpinnerAfter({ 'margin-left': "8px", 'margin-bottom': '-4px' }).next();
+
+                    if (request){ request.abort(); }
+                    request = $.ajax({
+                        url: url,
+                        data: {
+                            search: search,
+                            filter: 'Week',
+                        tab: 'Reputation'
+                    },
+                    success: function (result) {
+                        $("#user-browser").replaceWith($(result).filter("#user-browser"));
+                        $("#tabs-interval").replaceWith($(result).find("#tabs-interval"));
+                        showingAll = url == "/users/filter/all";
+                    },
+                    complete: function () { spinner.remove(); }
+                });
+            };
+        }
+    });
+    </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1464773005,"routeName":"Users/List","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableSocialMediaInSharePopup":true},"user":{"fkey":"69e35dac11f7b734c90c2bbcf26c52f4","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"aa0f9031868d","js/moderator.en.js":"727f932bd7c7","js/full-anon.en.js":"cf3f32ed473b","js/full.en.js":"0dc04e04c707","js/wmd.en.js":"1981d61440c4","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"3199d1e28733","js/help.en.js":"c8004cc0095d","js/tageditor.en.js":"9c6df10dabc4","js/tageditornew.en.js":"d8e50e4e80f6","js/inline-tag-editing.en.js":"7889156f8595","js/revisions.en.js":"47de10a8358f","js/review.en.js":"de5cb831c7d6","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"e769918cdd0b","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"1134dd5138ed","js/keyboard-shortcuts.en.js":"8db697c5d29f","js/external-editor.en.js":"34f78799ad2d","js/external-editor.en.js":"34f78799ad2d","js/snippet-javascript.en.js":"ba9a730814e8","js/snippet-javascript-codemirror.en.js":"c8d4f9d22938"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+<script src="Users%20-%201%20-%20Stack%20Overflow_files/full-anon.js" async=""></script></head>
+<body class="users-page new-topbar">
+    <noscript><div id="noscript-padding"></div></noscript>
+    
+        <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        
+
+
+
+
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fusers%3fpage%3d1%26tab%3dreputation%26filter%3dweek" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fusers%3fpage%3d1%26tab%3dreputation%26filter%3dweek" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+        <a href="http://blog.stackoverflow.com/" class="fr">company blog</a>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 157 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+    <a href="#" class="topbar-icon icon-inbox yes-hover js-inbox-button" title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="#" class="topbar-icon icon-achievements yes-hover js-achievements-button" data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fusers%3fpage%3d1%26tab%3dreputation%26filter%3dweek" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fusers%3fpage%3d1%26tab%3dreputation%26filter%3dweek" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                        About Us
+                        <span class="item-summary">
+                            Learn more about Stack Overflow the company
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://business.stackoverflow.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                        Business
+                        <span class="item-summary">
+                            Learn more about hiring developers or posting ads with us
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="/search" method="get" autocomplete="off">
+                    <input name="q" placeholder="Search Q&amp;A" tabindex="1" autocomplete="off" maxlength="240" type="text">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                            <li><a id="nav-jobs" href="http://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab">Jobs</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li class="youarehere"><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                                            </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+<div id="mainbar-full">
+    <div class="subheader">
+        <h1 id="h-users">Users</h1>
+
+        <div id="tabs">
+        <a class="youarehere" href="http://stackoverflow.com/users?tab=reputation" data-nav-xhref="" title="Users with the highest reputation scores" data-value="reputation" data-shortcut="">
+            reputation</a>
+        <a href="http://stackoverflow.com/users?tab=newusers" data-nav-xhref="" title="Users who joined in the last 30 days" data-value="newusers" data-shortcut="">
+            new users</a>
+        <a href="http://stackoverflow.com/users?tab=voters" data-nav-xhref="" title="Users who voted more than 10 times" data-value="voters" data-shortcut="">
+            voters</a>
+        <a href="http://stackoverflow.com/users?tab=editors" data-nav-xhref="" title="Users who edited at least 5 posts" data-value="editors" data-shortcut="">
+            editors</a>
+        <a href="http://stackoverflow.com/users?tab=moderators" data-nav-xhref="" title="Our current community moderators" data-value="moderators" data-shortcut="">
+            moderators</a>
+</div>
+    </div>
+
+    
+<div class="page-description" style="padding-bottom: 10px;">
+
+    <table style="width: 100%;">
+        <tbody><tr>
+            <td>
+                Type to find users:<input id="userfilter" name="userfilter" class="userfilter" style="margin-left: 10px;" type="text">
+            </td>
+            <td style="text-align: right;">
+<div id="tabs-interval" class="subtabs">
+        <a href="http://stackoverflow.com/users?tab=Reputation&amp;filter=all" data-nav-xhref="" title="2008-07-31 to today" data-value="all" data-shortcut="">
+            all</a>
+        <a href="http://stackoverflow.com/users?tab=Reputation&amp;filter=year" data-nav-xhref="" title="2016-01-01 to today" data-value="year" data-shortcut="">
+            year</a>
+        <a href="http://stackoverflow.com/users?tab=Reputation&amp;filter=quarter" data-nav-xhref="" title="2016-04-01 to today" data-value="quarter" data-shortcut="">
+            quarter</a>
+        <a href="http://stackoverflow.com/users?tab=Reputation&amp;filter=month" data-nav-xhref="" title="2016-06-01 to today" data-value="month" data-shortcut="">
+            month</a>
+        <a class="youarehere" href="http://stackoverflow.com/users?tab=Reputation&amp;filter=week" data-nav-xhref="" title="2016-05-29 to today" data-value="week" data-shortcut="">
+            week</a>
+</div>            </td>
+        </tr>
+    </tbody></table>
+</div>
+
+<div id="user-browser">
+        <table>
+                <tbody><tr>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/1144035/gordon-linoff"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/e514b017977ebf742a418cac697d8996.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/1144035/gordon-linoff">Gordon Linoff</a>
+                                    <span class="user-location">New York, United States</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 1,260 total reputation: 421,270" dir="ltr">1,260</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/sql">sql</a>, <a href="http://stackoverflow.com/questions/tagged/mysql">mysql</a>, <a href="http://stackoverflow.com/questions/tagged/sql-server">sql-server</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info ">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/3732271/akrun"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/ee6e12042dc31b1ef27471482f9ff91f.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/3732271/akrun">akrun</a>
+                                    <span class="user-location"></span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 1,085 total reputation: 168,957" dir="ltr">1,085</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/r">r</a>, <a href="http://stackoverflow.com/questions/tagged/dataframe">dataframe</a>, <a href="http://stackoverflow.com/questions/tagged/dplyr">dplyr</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/217408/g%c3%bcnter-z%c3%b6chbauer"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/IlnZm.jpg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/217408/g%c3%bcnter-z%c3%b6chbauer">Günter Zöchbauer</a>
+                                    <span class="user-location">Linz, Austria</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 1,050 total reputation: 87,702" dir="ltr">1,050</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/dart">dart</a>, <a href="http://stackoverflow.com/questions/tagged/angular2">angular2</a>, <a href="http://stackoverflow.com/questions/tagged/dart-polymer">dart-polymer</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info ">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/2901002/jezrael"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/hMDvl.jpg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/2901002/jezrael">jezrael</a>
+                                    <span class="user-location">Bratislava, Slovakia</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 960 total reputation: 30,130" dir="ltr">960</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/pandas">pandas</a>, <a href="http://stackoverflow.com/questions/tagged/python">python</a>, <a href="http://stackoverflow.com/questions/tagged/dataframe">dataframe</a>
+                                </div>
+                            </div>
+                        </td>
+                </tr>
+                <tr>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/6309/vonc"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/7aa22372b695ed2b26052c340f9097eb.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/6309/vonc">VonC</a>
+                                    <span class="user-location">France</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 943 total reputation: 590,815" dir="ltr">943</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/git">git</a>, <a href="http://stackoverflow.com/questions/tagged/eclipse">eclipse</a>, <a href="http://stackoverflow.com/questions/tagged/github">github</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/3037257/pranav-c-balan"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/BoK2M.jpg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/3037257/pranav-c-balan">Pranav C Balan</a>
+                                    <span class="user-location">Ramanthali, Kannur, Kerala, India, 670308</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 932 total reputation: 36,317" dir="ltr">932</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/jquery">jquery</a>, <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>, <a href="http://stackoverflow.com/questions/tagged/html">html</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/115145/commonsware"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/wDnd8.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/115145/commonsware">CommonsWare</a>
+                                    <span class="user-location">Around the Bend</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 881 total reputation: 561,435" dir="ltr">881</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/android">android</a>, <a href="http://stackoverflow.com/questions/tagged/java">java</a>, <a href="http://stackoverflow.com/questions/tagged/android-intent">android-intent</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/22656/jon-skeet"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/6d8ebb117e8d83d74ea95fbdd0f87e13.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/22656/jon-skeet">Jon Skeet</a>
+                                    <span class="user-location">Reading, United Kingdom</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 875 total reputation: 869,436" dir="ltr">875</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/c%23">c#</a>, <a href="http://stackoverflow.com/questions/tagged/java">java</a>, <a href="http://stackoverflow.com/questions/tagged/.net">.net</a>
+                                </div>
+                            </div>
+                        </td>
+                </tr>
+                <tr>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/3832970/wiktor-stribi%c5%bcew"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/64323e6cf08401474da3bf770ea13b58.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/3832970/wiktor-stribi%c5%bcew">Wiktor Stribiżew</a>
+                                    <span class="user-location">Warsaw, Poland</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 864 total reputation: 102,510" dir="ltr">864</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/regex">regex</a>, <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>, <a href="http://stackoverflow.com/questions/tagged/c%23">c#</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/100297/martijn-pieters"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/24780fb6df85a943c7aea0402c843737.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/100297/martijn-pieters">Martijn Pieters</a><span class="mod-flair" title="moderator">♦</span>
+                                    <span class="user-location">Cambridge, United Kingdom</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 830 total reputation: 463,531" dir="ltr">830</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/python">python</a>, <a href="http://stackoverflow.com/questions/tagged/python-2.7">python-2.7</a>, <a href="http://stackoverflow.com/questions/tagged/python-3.x">python-3.x</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/157882/balusc"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/89927e2f4bde24991649b353a37678b9.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/157882/balusc">BalusC</a>
+                                    <span class="user-location">Amsterdam, Netherlands</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 826 total reputation: 654,261" dir="ltr">826</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/java">java</a>, <a href="http://stackoverflow.com/questions/tagged/jsf">jsf</a>, <a href="http://stackoverflow.com/questions/tagged/jsf-2">jsf-2</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/190597/unutbu"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/dd069899166bba0f0e53d3097452b00b.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/190597/unutbu">unutbu</a>
+                                    <span class="user-location"></span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 800 total reputation: 355,607" dir="ltr">800</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/python">python</a>, <a href="http://stackoverflow.com/questions/tagged/numpy">numpy</a>, <a href="http://stackoverflow.com/questions/tagged/pandas">pandas</a>
+                                </div>
+                            </div>
+                        </td>
+                </tr>
+                <tr>
+                        <td>
+                            <div class="user-info ">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/5311735/evk"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/6rhPk.jpg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/5311735/evk">Evk</a>
+                                    <span class="user-location">Ekaterinburg, Russia</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 781 total reputation: 15,510" dir="ltr">781</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/c%23">c#</a>, <a href="http://stackoverflow.com/questions/tagged/wpf">wpf</a>, <a href="http://stackoverflow.com/questions/tagged/.net">.net</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/5353753/sagi"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/8658d889ba478c305810bd346e21da33.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/5353753/sagi">sagi</a>
+                                    <span class="user-location">Israel</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 756 total reputation: 14,144" dir="ltr">756</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/sql">sql</a>, <a href="http://stackoverflow.com/questions/tagged/mysql">mysql</a>, <a href="http://stackoverflow.com/questions/tagged/sql-server">sql-server</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info ">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/1560062/zero323"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/7c5027e3046fed86e8e34b4fa0e6246c.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/1560062/zero323">zero323</a>
+                                    <span class="user-location">Warsaw, Poland</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 778 total reputation: 55,379" dir="ltr">778</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/apache-spark">apache-spark</a>, <a href="http://stackoverflow.com/questions/tagged/python">python</a>, <a href="http://stackoverflow.com/questions/tagged/scala">scala</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/335858/dasblinkenlight"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/4af3541c00d591e9a518b9c0b3b1190a.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/335858/dasblinkenlight">dasblinkenlight</a>
+                                    <span class="user-location">United States</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 738 total reputation: 423,957" dir="ltr">738</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/c%23">c#</a>, <a href="http://stackoverflow.com/questions/tagged/java">java</a>, <a href="http://stackoverflow.com/questions/tagged/c%2b%2b">c++</a>
+                                </div>
+                            </div>
+                        </td>
+                </tr>
+                <tr>
+                        <td>
+                            <div class="user-info ">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/816620/jfriend00"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/162aa26d42813f31a21ced4bc9195f23.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/816620/jfriend00">jfriend00</a>
+                                    <span class="user-location"></span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 704 total reputation: 262,366" dir="ltr">704</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>, <a href="http://stackoverflow.com/questions/tagged/jquery">jquery</a>, <a href="http://stackoverflow.com/questions/tagged/html">html</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/14860/paxdiablo"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/vXG1F.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/14860/paxdiablo">paxdiablo</a>
+                                    <span class="user-location"></span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 697 total reputation: 467,098" dir="ltr">697</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/c">c</a>, <a href="http://stackoverflow.com/questions/tagged/c%2b%2b">c++</a>, <a href="http://stackoverflow.com/questions/tagged/bash">bash</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info ">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/2482744/alex-hall"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/da280aaf6b5a9e6fbdf13089d4e5fa03.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/2482744/alex-hall">Alex Hall</a>
+                                    <span class="user-location"></span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 713 total reputation: 5,440" dir="ltr">713</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/python">python</a>, <a href="http://stackoverflow.com/questions/tagged/list">list</a>, <a href="http://stackoverflow.com/questions/tagged/python-3.x">python-3.x</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/1048572/bergi"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/7f2c4de95e8f4f8f5a71c3aaf0ed312a.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/1048572/bergi">Bergi</a>
+                                    <span class="user-location"></span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 684 total reputation: 193,371" dir="ltr">684</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>, <a href="http://stackoverflow.com/questions/tagged/jquery">jquery</a>, <a href="http://stackoverflow.com/questions/tagged/promise">promise</a>
+                                </div>
+                            </div>
+                        </td>
+                </tr>
+                <tr>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/734069/nicol-bolas"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/a356923f858fbe363dad1dc566837fc6.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/734069/nicol-bolas">Nicol Bolas</a>
+                                    <span class="user-location"></span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 678 total reputation: 180,575" dir="ltr">678</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/c%2b%2b">c++</a>, <a href="http://stackoverflow.com/questions/tagged/opengl">opengl</a>, <a href="http://stackoverflow.com/questions/tagged/c%2b%2b11">c++11</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/157247/t-j-crowder"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/ca3e484c121268e4c8302616b2395eb9.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/157247/t-j-crowder">T.J. Crowder</a>
+                                    <span class="user-location">United Kingdom</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 654 total reputation: 446,224" dir="ltr">654</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>, <a href="http://stackoverflow.com/questions/tagged/jquery">jquery</a>, <a href="http://stackoverflow.com/questions/tagged/java">java</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/29407/darin-dimitrov"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/e3a181e9cdd4757a8b416d93878770c5.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/29407/darin-dimitrov">Darin Dimitrov</a>
+                                    <span class="user-location">Sofia, Bulgaria</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 650 total reputation: 665,001" dir="ltr">650</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/c%23">c#</a>, <a href="http://stackoverflow.com/questions/tagged/asp.net-mvc">asp.net-mvc</a>, <a href="http://stackoverflow.com/questions/tagged/asp.net-mvc-3">asp.net-mvc-3</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/209103/frank-van-puffelen"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/12d378e6a9788ab9c94bbafe242b82b4.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/209103/frank-van-puffelen">Frank van Puffelen</a>
+                                    <span class="user-location">San Francisco, CA</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 645 total reputation: 45,942" dir="ltr">645</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/firebase">firebase</a>, <a href="http://stackoverflow.com/questions/tagged/tridion">tridion</a>, <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>
+                                </div>
+                            </div>
+                        </td>
+                </tr>
+                <tr>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/893/greg-hewgill"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/747ffa5da3538e66840ebc0548b8fd58.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/893/greg-hewgill">Greg Hewgill</a>
+                                    <span class="user-location">Christchurch, New Zealand</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 652 total reputation: 485,166" dir="ltr">652</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/git">git</a>, <a href="http://stackoverflow.com/questions/tagged/python">python</a>, <a href="http://stackoverflow.com/questions/tagged/c%2b%2b">c++</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/17034/hans-passant"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/Cii6b.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/17034/hans-passant">Hans Passant</a>
+                                    <span class="user-location">Madison, WI</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 637 total reputation: 629,533" dir="ltr">637</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/c%23">c#</a>, <a href="http://stackoverflow.com/questions/tagged/.net">.net</a>, <a href="http://stackoverflow.com/questions/tagged/winforms">winforms</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/2756409/tylerh"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/UIrGI.jpg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/2756409/tylerh">TylerH</a>
+                                    <span class="user-location">United States</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 633 total reputation: 9,512" dir="ltr">633</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/css">css</a>, <a href="http://stackoverflow.com/questions/tagged/html">html</a>, <a href="http://stackoverflow.com/questions/tagged/css3">css3</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/218196/felix-kling"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/4P5DY.jpg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/218196/felix-kling">Felix Kling</a>
+                                    <span class="user-location">Sunnyvale, CA</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 620 total reputation: 367,065" dir="ltr">620</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>, <a href="http://stackoverflow.com/questions/tagged/jquery">jquery</a>, <a href="http://stackoverflow.com/questions/tagged/ajax">ajax</a>
+                                </div>
+                            </div>
+                        </td>
+                </tr>
+                <tr>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/34397/slaks"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/7deca8ec973c3c0875e9a36e1e3e2c44.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/34397/slaks">SLaks</a>
+                                    <span class="user-location">New Jersey</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 618 total reputation: 516,381" dir="ltr">618</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/c%23">c#</a>, <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>, <a href="http://stackoverflow.com/questions/tagged/.net">.net</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/104349/daniel-roseman"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/0f4cefeedec5163556751d61625eedd0.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/104349/daniel-roseman">Daniel Roseman</a>
+                                    <span class="user-location">London, United Kingdom</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 616 total reputation: 300,496" dir="ltr">616</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/django">django</a>, <a href="http://stackoverflow.com/questions/tagged/python">python</a>, <a href="http://stackoverflow.com/questions/tagged/django-models">django-models</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/1873365/thierry-templier"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/45TMV.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/1873365/thierry-templier">Thierry Templier</a>
+                                    <span class="user-location">France</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 605 total reputation: 41,294" dir="ltr">605</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/angular2">angular2</a>, <a href="http://stackoverflow.com/questions/tagged/typescript">typescript</a>, <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/390330/basarat"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/1400be56ff17549b926dd3260da4a494.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/390330/basarat">basarat</a>
+                                    <span class="user-location">Melbourne, Australia</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 615 total reputation: 64,703" dir="ltr">615</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/typescript">typescript</a>, <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>, <a href="http://stackoverflow.com/questions/tagged/angularjs">angularjs</a>
+                                </div>
+                            </div>
+                        </td>
+                </tr>
+                <tr>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/548225/anubhava"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/dab08478b226280d4a30894c9a7ed719.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/548225/anubhava">anubhava</a>
+                                    <span class="user-location">Bangalore, India</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 594 total reputation: 352,110" dir="ltr">594</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/regex">regex</a>, <a href="http://stackoverflow.com/questions/tagged/bash">bash</a>, <a href="http://stackoverflow.com/questions/tagged/.htaccess">.htaccess</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/215945/mark-rajcok"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/203qt.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/215945/mark-rajcok">Mark Rajcok</a>
+                                    <span class="user-location">New Jersey, USA</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 585 total reputation: 185,588" dir="ltr">585</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/angularjs">angularjs</a>, <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>, <a href="http://stackoverflow.com/questions/tagged/jquery">jquery</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info ">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/2666859/stanley-r"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/ed327b33cc3fec19b22b6ea140b87669.png" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/2666859/stanley-r">Stanley R</a>
+                                    <span class="user-location"></span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 581 total reputation: 1,129" dir="ltr">581</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/python">python</a>, <a href="http://stackoverflow.com/questions/tagged/matplotlib">matplotlib</a>, <a href="http://stackoverflow.com/questions/tagged/3d">3d</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="user-info  user-hover">
+                                <div class="user-gravatar48">
+                                    <a href="http://stackoverflow.com/users/5445/cms"><div class="gravatar-wrapper-48"><img src="Users%20-%201%20-%20Stack%20Overflow_files/932fb89b9d4049cec5cba357bf0ae388.jpeg" alt="" height="48" width="48"></div></a>
+                                </div>
+                                <div class="user-details">
+                                    <a href="http://stackoverflow.com/users/5445/cms">CMS</a>
+                                    <span class="user-location">Guatemala</span>
+                                    <div class="-flair">
+                                        <span class="reputation-score" title="reputation this week: 580 total reputation: 430,562" dir="ltr">580</span>
+                                    </div>
+                                </div>
+                                <div class="user-tags">
+                                    <a href="http://stackoverflow.com/questions/tagged/javascript">javascript</a>, <a href="http://stackoverflow.com/questions/tagged/jquery">jquery</a>, <a href="http://stackoverflow.com/questions/tagged/c%23">c#</a>
+                                </div>
+                            </div>
+                        </td>
+                </tr>
+        </tbody></table>
+<div class="pager fr">
+        
+
+
+
+
+ <span class="page-numbers current">1</span>         <a href="http://stackoverflow.com/users?page=2&amp;tab=reputation&amp;filter=week" title="go to page 2"> <span class="page-numbers">2</span> </a> 
+        <a href="http://stackoverflow.com/users?page=3&amp;tab=reputation&amp;filter=week" title="go to page 3"> <span class="page-numbers">3</span> </a> 
+        <a href="http://stackoverflow.com/users?page=4&amp;tab=reputation&amp;filter=week" title="go to page 4"> <span class="page-numbers">4</span> </a> 
+        <a href="http://stackoverflow.com/users?page=5&amp;tab=reputation&amp;filter=week" title="go to page 5"> <span class="page-numbers">5</span> </a> 
+ <span class="page-numbers dots">…</span>         <a href="http://stackoverflow.com/users?page=147534&amp;tab=reputation&amp;filter=week" title="go to page 147534"> <span class="page-numbers">147534</span> </a> 
+        <a href="http://stackoverflow.com/users?page=2&amp;tab=reputation&amp;filter=week" rel="next" title="go to page 2"> <span class="page-numbers next"> next</span> </a> 
+
+    </div></div>
+
+    <div id="users-legend" style="float: left; margin-top: 25px; margin-bottom: 10px;">
+        <b><a href="http://stackexchange.com/leagues/week/stackoverflow">weekly / monthly / quarterly reputation leagues</a></b>
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="http://stackoverflow.com/company/about">about us</a>
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackoverflow.com/company/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2016 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2016.6.1.3627
+            </div>
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+        <script> setTimeout(function() { $("#adzerk-user-match").remove(); }, 2000);</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');
+                        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+                
+    </script>
+        
+    
+    
+</body></html>

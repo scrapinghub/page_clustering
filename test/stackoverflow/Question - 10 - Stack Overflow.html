@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>shell - How to remove \n between the outputs of two echo commands? - Unix &amp; Linux Stack Exchange</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/Sites/unix/img/favicon.ico?v=546c52892feb">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/Sites/unix/img/apple-touch-icon.png?v=5cf7fe716a89">
+    <link rel="search" type="application/opensearchdescription+xml" title="Unix &amp; Linux Stack Exchange" href="http://unix.stackexchange.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@StackUnix">
+    <meta name="twitter:domain" content="unix.stackexchange.com">
+    <meta property="og:type" content="website">    
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/Sites/unix/img/apple-touch-icon@2.png?v=32fb07f7ce26&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="How to remove \n between the outputs of two echo commands?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I have a text file containing one file name in each line:
+
+111_c4l5r120.png
+123_c4l4r60.png
+135_c4l4r180.png
+147_c4l3r60.png
+15_c4l1r120.png
+...
+
+
+I want to convert it in this shape:
+
+111_c4l5r120....">
+    <meta property="og:url" content="http://unix.stackexchange.com/questions/286839/how-to-remove-n-between-the-outputs-of-two-echo-commands">
+    <link rel="canonical" href="http://unix.stackexchange.com/questions/286839/how-to-remove-n-between-the-outputs-of-two-echo-commands">
+
+    
+    
+    <script src="Question%20-%2010%20-%20Stack%20Overflow_files/quant.js" async=""></script><script src="Question%20-%2010%20-%20Stack%20Overflow_files/beacon.js" async=""></script><script src="Question%20-%2010%20-%20Stack%20Overflow_files/analytics.js" async=""></script><script src="Question%20-%2010%20-%20Stack%20Overflow_files/ados.js" async="" type="text/javascript"></script><script src="Question%20-%2010%20-%20Stack%20Overflow_files/jquery.js"></script><style type="text/css">:root .ad-container
+{display:none !important;}</style>
+    <script src="Question%20-%2010%20-%20Stack%20Overflow_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="Question%20-%2010%20-%20Stack%20Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question 'How to remove \n between the outputs of two echo commands?'" href="http://unix.stackexchange.com/feeds/question/286839">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://unix.stackexchange.com/questions/286839/how-to-remove-n-between-the-outputs-of-two-echo-commands">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://unix.stackexchange.com/questions/286839/how-to-remove-n-between-the-outputs-of-two-echo-commands">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://unix.stackexchange.com/questions/286839/how-to-remove-n-between-the-outputs-of-two-echo-commands">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:286839});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('106', '286839');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.ready(function () {
+            StackExchange.realtime.init('wss://qa.sockets.stackexchange.com,ws://qa.sockets.stackexchange.com');
+            StackExchange.realtime.subscribeToReputationNotifications('106');
+                StackExchange.realtime.subscribeToTopBarNotifications('106');
+        });
+    </script>
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1464776230,"routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":false,"domain":"stacksnippets.net"},"site":{"name":"Unix & Linux Stack Exchange","description":"Q&A for users of Linux, FreeBSD and other Un*x-like operating systems","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdsB7sSAAAAAAzjgEF_Hd8vXv-C42sa_KyofaGR","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":106,"enableSocialMediaInSharePopup":true},"user":{"fkey":"de30d7cfc518d086f84c856205aac49b","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true},"realtime":{"newest":true,"active":true,"tagged":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"aa0f9031868d","js/moderator.en.js":"727f932bd7c7","js/full-anon.en.js":"cf3f32ed473b","js/full.en.js":"0dc04e04c707","js/wmd.en.js":"1981d61440c4","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"3199d1e28733","js/help.en.js":"c8004cc0095d","js/tageditor.en.js":"9c6df10dabc4","js/tageditornew.en.js":"d8e50e4e80f6","js/inline-tag-editing.en.js":"7889156f8595","js/revisions.en.js":"47de10a8358f","js/review.en.js":"de5cb831c7d6","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"e769918cdd0b","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"1134dd5138ed","js/keyboard-shortcuts.en.js":"8db697c5d29f","js/external-editor.en.js":"34f78799ad2d"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+<script src="Question%20-%2010%20-%20Stack%20Overflow_files/full-anon.js" async=""></script><style type="text/css">:root #content > #center > .dose > .dosesingle,
+:root #content > #right > .dose > .dosesingle,
+:root #header + #content > #left > #rlblock_left
+{display:none !important;}</style><script src="Question%20-%2010%20-%20Stack%20Overflow_files/post-validation.js" async=""></script><script src="Question%20-%2010%20-%20Stack%20Overflow_files/prettify-full.js" async=""></script><script src="Question%20-%2010%20-%20Stack%20Overflow_files/external-editor.js" async=""></script></head>
+<body class="question-page new-topbar">
+    <noscript><div id="noscript-padding"></div></noscript>
+    
+
+
+
+
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://unix.stackexchange.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+                    <a href="http://chat.stackexchange.com/?host=unix.stackexchange.com" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+
+
+
+    <a href="http://unix.stackexchange.com/" class="current-site-link site-link js-gps-track" data-id="106" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-unix" title="Unix &amp; Linux"></div>
+        Unix &amp; Linux
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.unix.stackexchange.com/" class="site-link js-gps-track" data-id="108" data-gps-track="
+            site.switch({ target_site:108, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-unixmeta" title="Unix &amp; Linux Meta"></div>
+        Unix &amp; Linux Meta
+    </a>
+
+                </li>
+                    </ul>
+    </div>
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://unix.stackexchange.com/users/signup?ssrc=site_switcher&amp;returnurl=http%3a%2f%2funix.stackexchange.com%2fquestions%2f286839%2fhow-to-remove-n-between-the-outputs-of-two-echo-commands" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://unix.stackexchange.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2funix.stackexchange.com%2fquestions%2f286839%2fhow-to-remove-n-between-the-outputs-of-two-echo-commands" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+        <a href="http://blog.stackoverflow.com/" class="fr">company blog</a>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 157 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+    <a href="#" class="topbar-icon icon-inbox yes-hover js-inbox-button" title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="#" class="topbar-icon icon-achievements yes-hover js-achievements-button" data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                    <a href="https://unix.stackexchange.com/users/signup?ssrc=head&amp;returnurl=http%3a%2f%2funix.stackexchange.com%2fquestions%2f286839%2fhow-to-remove-n-between-the-outputs-of-two-echo-commands" class="login-link">sign up</a>
+                                <a href="https://unix.stackexchange.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2funix.stackexchange.com%2fquestions%2f286839%2fhow-to-remove-n-between-the-outputs-of-two-echo-commands" class="login-link">log in</a>
+
+                        <a href="http://unix.stackexchange.com/tour">tour</a>
+                            <a href="#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://unix.stackexchange.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://unix.stackexchange.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.unix.stackexchange.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                        About Us
+                        <span class="item-summary">
+                            Learn more about Stack Overflow the company
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://business.stackoverflow.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                        Business
+                        <span class="item-summary">
+                            Learn more about hiring developers or posting ads with us
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="/search" method="get" autocomplete="off">
+                    <input name="q" placeholder="Search Q&amp;A" tabindex="1" autocomplete="off" maxlength="240" type="text">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://unix.stackexchange.com/">
+                    Unix &amp; Linux
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://unix.stackexchange.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://unix.stackexchange.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://unix.stackexchange.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://unix.stackexchange.com/help/badges">Badges</a></li>
+                                                <li><a id="nav-unanswered" href="http://unix.stackexchange.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://unix.stackexchange.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/Sites/unix/img/apple-touch-icon.png?v=5cf7fe716a89">
+
+<div id="herobox">
+    <div id="hero-content">
+            <div id="close"><a title="click to minimize">_</a></div>
+        <div id="blurb">
+            Unix &amp; Linux Stack Exchange is a question and answer 
+site for users of Linux, FreeBSD and other Un*x-like operating systems. 
+It's 100% free, no registration required.
+            <br>
+            <br>
+            <a href="http://unix.stackexchange.com/users/signup?ssrc=hero&amp;returnurl=http%3a%2f%2funix.stackexchange.com%2fquestions%2f286839%2fhow-to-remove-n-between-the-outputs-of-two-echo-commands" id="tell-me-more" class="button">Sign up</a>
+        </div>
+        <div id="desc">
+            <b>Here's how it works:</b>
+            <ol id="hiw">
+                <li id="q">Anybody can ask a question
+                </li>
+                <li id="an">Anybody can answer
+                </li>
+                <li id="b">The best answers are voted up and rise to the top
+                </li>
+            </ol>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+    <script>
+        StackExchange.ready(function () {
+
+            var location = 0;
+            if ($("body").hasClass("questions-page")) {
+                location = 1;;
+            } else if ($("body").hasClass("question-page")) {
+                location = 1;;
+            } else if ($("body").hasClass("faq-page")) {
+                location = 5;;
+            } else if ($("body").hasClass("home-page")) {
+                location = 3;;
+            }
+
+            $('#tell-me-more').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+                });
+            });
+            $('#herobox #close').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+                });
+                $.cookie("hero", "mini", { path: "/", expires: 365 });
+                $.ajax({
+                    url: "/hero-mini",
+                    success: function (data) {
+                        $("#herobox").fadeOut("fast", function () {
+                            $("#herobox").replaceWith(data);
+                            $("#herobox-mini").fadeIn("fast");
+                        });
+                    }
+                });
+                return false;
+            });
+        });
+
+    </script>
+</div>
+			<div id="question-header">
+                <h1 itemprop="name"><a href="http://unix.stackexchange.com/questions/286839/how-to-remove-n-between-the-outputs-of-two-echo-commands" class="question-hyperlink">How to remove \n between the outputs of two echo commands?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="286839" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,0,"adzerk1169652654",4).enableDynamicSiteSelection().setZone(29); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1169652654">
+            </div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="286839" type="hidden">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b></b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I have a text file containing one file name in each line:</p>
+
+<pre style="" class="lang-sh prettyprint prettyprinted"><code><span class="lit">111</span><span class="pln">_c4l5r120</span><span class="pun">.</span><span class="pln">png
+</span><span class="lit">123</span><span class="pln">_c4l4r60</span><span class="pun">.</span><span class="pln">png
+</span><span class="lit">135</span><span class="pln">_c4l4r180</span><span class="pun">.</span><span class="pln">png
+</span><span class="lit">147</span><span class="pln">_c4l3r60</span><span class="pun">.</span><span class="pln">png
+</span><span class="lit">15</span><span class="pln">_c4l1r120</span><span class="pun">.</span><span class="pln">png
+</span><span class="pun">...</span></code></pre>
+
+<p>I want to convert it in this shape:</p>
+
+<pre style="" class="lang-sh prettyprint prettyprinted"><code><span class="lit">111</span><span class="pln">_c4l5r120</span><span class="pun">.</span><span class="pln">png </span><span class="lit">111</span><span class="pln">
+</span><span class="lit">123</span><span class="pln">_c4l4r60</span><span class="pun">.</span><span class="pln">png </span><span class="lit">123</span><span class="pln">
+</span><span class="lit">135</span><span class="pln">_c4l4r180</span><span class="pun">.</span><span class="pln">png </span><span class="lit">135</span><span class="pln">
+</span><span class="lit">147</span><span class="pln">_c4l3r60</span><span class="pun">.</span><span class="pln">png </span><span class="lit">147</span><span class="pln">
+</span><span class="lit">15</span><span class="pln">_c4l1r120</span><span class="pun">.</span><span class="pln">png </span><span class="lit">15</span><span class="pln">
+</span><span class="pun">...</span></code></pre>
+
+<p>using this code:</p>
+
+<pre style="" class="lang-sh prettyprint prettyprinted"><code><span class="com">#!/bin/bash</span><span class="pln">
+</span><span class="kwd">while</span><span class="pln"> IFS</span><span class="pun">=</span><span class="str">''</span><span class="pln"> read </span><span class="pun">-</span><span class="pln">r line </span><span class="pun">||</span><span class="pln"> </span><span class="pun">[[</span><span class="pln">  </span><span class="pun">-</span><span class="pln">n </span><span class="str">"$line"</span><span class="pln">  </span><span class="pun">]];</span><span class="pln"> </span><span class="kwd">do</span><span class="pln">
+   echo </span><span class="str">"$line"</span><span class="pln"> </span><span class="pun">&gt;&gt;</span><span class="pln"> output</span><span class="pun">.</span><span class="pln">txt   
+   echo </span><span class="str">"$line"</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> cut </span><span class="pun">-</span><span class="pln">d</span><span class="str">'_'</span><span class="pln"> </span><span class="pun">-</span><span class="pln">f </span><span class="lit">1</span><span class="pln"> </span><span class="pun">&gt;&gt;</span><span class="pln"> output</span><span class="pun">.</span><span class="pln">txt
+</span><span class="kwd">done</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="str">"$1"</span></code></pre>
+
+<p>but, the result is:</p>
+
+<pre style="" class="lang-sh prettyprint prettyprinted"><code><span class="lit">111</span><span class="pln">_c4l5r120</span><span class="pun">.</span><span class="pln">png 
+</span><span class="lit">111</span><span class="pln">
+</span><span class="lit">123</span><span class="pln">_c4l4r60</span><span class="pun">.</span><span class="pln">png 
+</span><span class="lit">123</span><span class="pln">
+</span><span class="lit">135</span><span class="pln">_c4l4r180</span><span class="pun">.</span><span class="pln">png 
+</span><span class="lit">135</span><span class="pln">
+</span><span class="lit">147</span><span class="pln">_c4l3r60</span><span class="pun">.</span><span class="pln">png 
+</span><span class="lit">147</span><span class="pln">
+</span><span class="lit">15</span><span class="pln">_c4l1r120</span><span class="pun">.</span><span class="pln">png 
+</span><span class="lit">15</span><span class="pln">
+</span><span class="pun">...</span></code></pre>
+
+<p>How should I change my script to have the desire output?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://unix.stackexchange.com/questions/tagged/shell" class="post-tag js-gps-track" title="show questions tagged 'shell'" rel="tag">shell</a> <a href="http://unix.stackexchange.com/questions/tagged/shell-script" class="post-tag js-gps-track" title="show questions tagged 'shell-script'" rel="tag">shell-script</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://unix.stackexchange.com/q/286839" title="short permalink to this question" class="short-link" id="link-post-286839">share</a><span class="lsep">|</span><a href="http://unix.stackexchange.com/posts/286839/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://unix.stackexchange.com/posts/286839/revisions" title="show all edits to this post">edited <span title="2016-06-01 08:57:38Z" class="relativetime">1 hour ago</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://unix.stackexchange.com/users/86440/stephen-kitt"><div class="gravatar-wrapper-32"><img src="Question%20-%2010%20-%20Stack%20Overflow_files/a935dafe246dd0e2c216542f50073cbe.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://unix.stackexchange.com/users/86440/stephen-kitt">Stephen Kitt</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 31,013" dir="ltr">31k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="48 silver badges"><span class="badge2"></span><span class="badgecount">48</span></span><span title="74 bronze badges"><span class="badge3"></span><span class="badgecount">74</span></span>
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2016-06-01 08:54:58Z" class="relativetime">1 hour ago</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://unix.stackexchange.com/users/171112/ali"><div class="gravatar-wrapper-32"><img src="Question%20-%2010%20-%20Stack%20Overflow_files/Vm8Ad.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://unix.stackexchange.com/users/171112/ali">Ali</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">27</span><span title="5 bronze badges"><span class="badge3"></span><span class="badgecount">5</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-286839" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-286839" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								2 Answers
+                                <span style="display:none;" itemprop="answerCount">2</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://unix.stackexchange.com/questions/286839/how-to-remove-n-between-the-outputs-of-two-echo-commands?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="http://unix.stackexchange.com/questions/286839/how-to-remove-n-between-the-outputs-of-two-echo-commands?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="http://unix.stackexchange.com/questions/286839/how-to-remove-n-between-the-outputs-of-two-echo-commands?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="286841"></a>
+<div id="answer-286841" class="answer accepted-answer" data-answerid="286841" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="286841" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Use the <code>-n</code> option to echo:</p>
+
+<pre style="" class="lang-sh prettyprint prettyprinted"><code><span class="pln">echo </span><span class="pun">-</span><span class="pln">n </span><span class="str">"${line} "</span><span class="pln"> </span><span class="pun">&gt;&gt;</span><span class="pln"> output</span><span class="pun">.</span><span class="pln">txt</span></code></pre>
+
+<p>Or you can use shell features to process the line without using <code>cut</code>:</p>
+
+<pre style="" class="lang-sh prettyprint prettyprinted"><code><span class="pln">echo </span><span class="str">"${line} ${line%%_*}"</span><span class="pln"> </span><span class="pun">&gt;&gt;</span><span class="pln"> output</span><span class="pun">.</span><span class="pln">txt</span></code></pre>
+
+<p>(replacing both <code>echo</code> lines).</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://unix.stackexchange.com/a/286841" title="short permalink to this answer" class="short-link" id="link-post-286841">share</a><span class="lsep">|</span><a href="http://unix.stackexchange.com/posts/286841/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2016-06-01 08:58:23Z" class="relativetime">1 hour ago</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://unix.stackexchange.com/users/86440/stephen-kitt"><div class="gravatar-wrapper-32"><img src="Question%20-%2010%20-%20Stack%20Overflow_files/a935dafe246dd0e2c216542f50073cbe.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://unix.stackexchange.com/users/86440/stephen-kitt">Stephen Kitt</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 31,013" dir="ltr">31k</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="48 silver badges"><span class="badge2"></span><span class="badgecount">48</span></span><span title="74 bronze badges"><span class="badge3"></span><span class="badgecount">74</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-286841" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-286841" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,0,"adzerk420566644",4).enableDynamicSiteSelection().setZone(30); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk420566644">
+            </div>
+  
+<a name="286846"></a>
+<div id="answer-286846" class="answer" data-answerid="286846" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="286846" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">6</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Don't do this sort of thing in the shell! It is far more complex than
+ necessary, prone to errors and far, far, slower. There are many tools 
+designed for such text manipulation. For example, in <code>sed</code> (here assuming recent GNU or BSD implementations for <code>-E</code>):</p>
+
+<pre style="" class="lang-sh prettyprint prettyprinted"><code><span class="pln">$ sed </span><span class="pun">-</span><span class="pln">E </span><span class="str">'s/([^_]*).*/&amp; \1/'</span><span class="pln"> file
+</span><span class="lit">111</span><span class="pln">_c4l5r120</span><span class="pun">.</span><span class="pln">png </span><span class="lit">111</span><span class="pln">
+</span><span class="lit">123</span><span class="pln">_c4l4r60</span><span class="pun">.</span><span class="pln">png </span><span class="lit">123</span><span class="pln">
+</span><span class="lit">135</span><span class="pln">_c4l4r180</span><span class="pun">.</span><span class="pln">png </span><span class="lit">135</span><span class="pln">
+</span><span class="lit">147</span><span class="pln">_c4l3r60</span><span class="pun">.</span><span class="pln">png </span><span class="lit">147</span><span class="pln">
+</span><span class="lit">15</span><span class="pln">_c4l1r120</span><span class="pun">.</span><span class="pln">png </span><span class="lit">15</span></code></pre>
+
+<p>Perl:</p>
+
+<pre style="" class="lang-sh prettyprint prettyprinted"><code><span class="pln">$ perl </span><span class="pun">-</span><span class="pln">pe </span><span class="str">'s/(.+?)_.*/$&amp; $1/'</span><span class="pln"> file
+</span><span class="lit">111</span><span class="pln">_c4l5r120</span><span class="pun">.</span><span class="pln">png </span><span class="lit">111</span><span class="pln">
+</span><span class="lit">123</span><span class="pln">_c4l4r60</span><span class="pun">.</span><span class="pln">png </span><span class="lit">123</span><span class="pln">
+</span><span class="lit">135</span><span class="pln">_c4l4r180</span><span class="pun">.</span><span class="pln">png </span><span class="lit">135</span><span class="pln">
+</span><span class="lit">147</span><span class="pln">_c4l3r60</span><span class="pun">.</span><span class="pln">png </span><span class="lit">147</span><span class="pln">
+</span><span class="lit">15</span><span class="pln">_c4l1r120</span><span class="pun">.</span><span class="pln">png </span><span class="lit">15</span></code></pre>
+
+<p>awk:</p>
+
+<pre style="" class="lang-sh prettyprint prettyprinted"><code><span class="pln">$ awk </span><span class="pun">-</span><span class="pln">F_ </span><span class="str">'{print $0,$1}'</span><span class="pln"> file
+</span><span class="lit">111</span><span class="pln">_c4l5r120</span><span class="pun">.</span><span class="pln">png </span><span class="lit">111</span><span class="pln">
+</span><span class="lit">123</span><span class="pln">_c4l4r60</span><span class="pun">.</span><span class="pln">png </span><span class="lit">123</span><span class="pln">
+</span><span class="lit">135</span><span class="pln">_c4l4r180</span><span class="pun">.</span><span class="pln">png </span><span class="lit">135</span><span class="pln">
+</span><span class="lit">147</span><span class="pln">_c4l3r60</span><span class="pun">.</span><span class="pln">png </span><span class="lit">147</span><span class="pln">
+</span><span class="lit">15</span><span class="pln">_c4l1r120</span><span class="pun">.</span><span class="pln">png </span><span class="lit">15</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://unix.stackexchange.com/a/286846" title="short permalink to this answer" class="short-link" id="link-post-286846">share</a><span class="lsep">|</span><a href="http://unix.stackexchange.com/posts/286846/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://unix.stackexchange.com/posts/286846/revisions" title="show all edits to this post">edited <span title="2016-06-01 10:13:52Z" class="relativetime">3 mins ago</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://unix.stackexchange.com/users/22565/st%c3%a9phane-chazelas"><div class="gravatar-wrapper-32"><img src="Question%20-%2010%20-%20Stack%20Overflow_files/BkKfT.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://unix.stackexchange.com/users/22565/st%c3%a9phane-chazelas">Stéphane Chazelas</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 158,342" dir="ltr">158k</span><span title="23 gold badges"><span class="badge1"></span><span class="badgecount">23</span></span><span title="248 silver badges"><span class="badge2"></span><span class="badgecount">248</span></span><span title="435 bronze badges"><span class="badge3"></span><span class="badgecount">435</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2016-06-01 09:11:24Z" class="relativetime">1 hour ago</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://unix.stackexchange.com/users/22222/terdon"><div class="gravatar-wrapper-32"><img src="Question%20-%2010%20-%20Stack%20Overflow_files/1MUb2.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://unix.stackexchange.com/users/22222/terdon">terdon</a><span class="mod-flair" title="moderator">♦</span>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 79,085" dir="ltr">79.1k</span><span title="13 gold badges"><span class="badge1"></span><span class="badgecount">13</span></span><span title="120 silver badges"><span class="badge2"></span><span class="badgecount">120</span></span><span title="228 bronze badges"><span class="badge3"></span><span class="badgecount">228</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-286846" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-499990" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Stéphane what <code>sed</code> implementations lack <code>-E</code>? It seems to be the most portable way of getting ERE in <code>sed</code>. Can I be reasonably certain that any newish sed implementation will support it? Even my busybox sed does on Arch.</span>
+                    –&nbsp;<a href="http://unix.stackexchange.com/users/22222/terdon" title="79,085 reputation" class="comment-user">terdon<span class="mod-flair" title="moderator">♦</span></a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment499990_286846"><span title="2016-06-01 10:16:16Z" class="relativetime-clean">53 secs ago</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-286846" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="/questions/286839/answer/submit" method="post" class="post-form">
+						    <input id="post-id" value="286839" type="hidden">
+                            <input id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" type="hidden">
+                            <input name="referrer" value="http://ow.ly/5cBa500TKdD" type="hidden">
+							<h2 class="space">Your Answer</h2>
+
+
+        
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.options.snippets.enabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: false,
+                reputationToPostImages: null,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li style="left: 0px;" class="wmd-button" id="wmd-bold-button"><span style="background-position: 0px -20px;"></span></li><li style="left: 25px;" class="wmd-button" id="wmd-italic-button"><span style="background-position: -20px -20px;"></span></li><li style="left: 50px;" class="wmd-spacer" id="wmd-spacer1"><span style="background-position: -40px -20px;"></span></li><li style="left: 75px;" class="wmd-button" id="wmd-link-button"><span style="background-position: -40px -20px;"></span></li><li style="left: 100px;" class="wmd-button" id="wmd-quote-button"><span style="background-position: -60px -20px;"></span></li><li style="left: 125px;" class="wmd-button" id="wmd-code-button"><span style="background-position: -80px -20px;"></span></li><li style="left: 150px;" class="wmd-button" id="wmd-image-button"><span style="background-position: -100px -20px;"></span></li><li style="left: 175px;" class="wmd-spacer" id="wmd-spacer2"><span style="background-position: -120px -20px;"></span></li><li style="left: 200px;" class="wmd-button" id="wmd-olist-button"><span style="background-position: -120px -20px;"></span></li><li style="left: 225px;" class="wmd-button" id="wmd-ulist-button"><span style="background-position: -140px -20px;"></span></li><li style="left: 250px;" class="wmd-button" id="wmd-heading-button"><span style="background-position: -160px -20px;"></span></li><li style="left: 275px;" class="wmd-button" id="wmd-hr-button"><span style="background-position: -180px -20px;"></span></li><li style="left: 300px;" class="wmd-spacer" id="wmd-spacer3"><span style="background-position: -200px -20px;"></span></li><li style="left: 325px;" class="wmd-button" id="wmd-undo-button"><span style="background-position: -200px -20px;"></span></li><li style="left: 350px;" class="wmd-button" id="wmd-redo-button"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="de30d7cfc518d086f84c856205aac49b" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://unix.stackexchange.com/users/login?ssrc=question_page&amp;returnurl=http%3a%2f%2funix.stackexchange.com%2fquestions%2f286839%2fhow-to-remove-n-between-the-outputs-of-two-echo-commands%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input name="manual-openid" class="manual-openid" type="hidden">
+                    <input name="use-facebook" class="use-facebook" value="false" type="hidden">
+                    <input name="use-google" class="use-google" value="false" type="hidden">
+                    <input class="submit-openid" value="Submit" style="display:none" type="button">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" size="30" maxlength="30" tabindex="105" type="text">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" size="30" maxlength="100" tabindex="106" placeholder="required, but never shown" type="email">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2funix.stackexchange.com%2fquestions%2f286839%2fhow-to-remove-n-between-the-outputs-of-two-echo-commands%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" value="Post Your Answer" tabindex="110" type="submit">
+									<a href="#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://unix.stackexchange.com/questions/tagged/shell" class="post-tag" title="show questions tagged 'shell'" rel="tag">shell</a> <a href="http://unix.stackexchange.com/questions/tagged/shell-script" class="post-tag" title="show questions tagged 'shell-script'" rel="tag">shell-script</a>  or <a href="http://unix.stackexchange.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2016-06-01 08:54:58Z"><b>today</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>54 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://unix.stackexchange.com/questions/286839/how-to-remove-n-between-the-outputs-of-two-echo-commands?lastactivity" class="lastactivity-link" title="2016-06-01 10:13:52Z">today</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,0,"adzerk808863332",[5,17]).enableDynamicSiteSelection().setZone(56016); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk808863332">
+            </div>
+			  
+    
+            
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://unix.stackexchange.com/q/41021?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">6
+    </div>
+</a><a href="http://unix.stackexchange.com/questions/41021/differences-between-echo-and-command?rq=1" class="question-hyperlink">differences between echo“”&gt; and &gt; command</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://unix.stackexchange.com/q/166461?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://unix.stackexchange.com/questions/166461/how-do-i-remove-from-the-file-name?rq=1" class="question-hyperlink">how do I remove ./ from the file name</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://unix.stackexchange.com/q/189728?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://unix.stackexchange.com/questions/189728/not-getting-the-desired-output-for-echo-command?rq=1" class="question-hyperlink">Not getting the desired output for echo command</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://unix.stackexchange.com/q/217844?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://unix.stackexchange.com/questions/217844/pipe-output-of-one-command-to-two-others?rq=1" class="question-hyperlink">Pipe output of one command to two others</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://unix.stackexchange.com/q/229992?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">3
+    </div>
+</a><a href="http://unix.stackexchange.com/questions/229992/shell-script-to-move-files-between-two-dirs?rq=1" class="question-hyperlink">Shell script to move files between two dirs</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://unix.stackexchange.com/q/236784?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://unix.stackexchange.com/questions/236784/how-can-i-order-the-output-of-echo-command?rq=1" class="question-hyperlink">How can i order the output of “echo” command</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://unix.stackexchange.com/q/244126?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://unix.stackexchange.com/questions/244126/replace-string-values-between-two-files?rq=1" class="question-hyperlink">replace string values between two files</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://unix.stackexchange.com/q/245745?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://unix.stackexchange.com/questions/245745/syntax-error-for-a-script-that-will-enter-two-numbers-and-echo-an-output?rq=1" class="question-hyperlink">Syntax error for a script that will enter two numbers and echo an output?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://unix.stackexchange.com/q/273496?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://unix.stackexchange.com/questions/273496/how-do-i-display-all-the-characters-between-two-specific-strings?rq=1" class="question-hyperlink">How do I display all the characters between two specific strings?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://unix.stackexchange.com/q/281472?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://unix.stackexchange.com/questions/281472/how-to-remove-duplicate-rows-from-a-file?rq=1" class="question-hyperlink">How to remove duplicate rows from a file?</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-music" title="Music: Practice &amp; Theory Stack Exchange"></div><a href="http://music.stackexchange.com/questions/44999/why-crescendo-or-decrescendo-over-one-long-note-in-piano-music" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:240 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why crescendo or decrescendo over one long note in piano music?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/80865/is-saying-your-pc-wouldnt-do-that-to-a-player-denying-their-agency" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is saying "Your PC wouldn't do that" to a player denying their agency?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/124633/what-stops-someone-from-just-redirecting-a-https-connection-to-a-http-version-of" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What stops someone from just redirecting a HTTPS connection to a HTTP version of the site?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-emacs" title="Emacs Stack Exchange"></div><a href="http://emacs.stackexchange.com/questions/22671/can-i-view-within-emacs-the-properties-of-a-file-which-i-already-opened" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:583 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I view within Emacs the properties of a file which I already opened?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/237484/lower-than-0-7-0-6v-voltage-drop-on-sillicon-diodes" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Lower than 0.7-0.6V voltage drop on sillicon diodes
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/80974/24-and-12-hour-times" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    24 and 12 Hour Times
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="http://gaming.stackexchange.com/questions/267530/in-skyrim-what-is-the-point-of-placing-items-into-other-peoples-inventories" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    In Skyrim, what is the point of placing items into other people's inventories? (Pick-pocketing)
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/33263/correct-way-to-add-22-to-4-to-get-82" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Correct way to add 22 to 4 to get 82
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="http://ell.stackexchange.com/questions/91410/can-we-call-a-divorced-woman-single" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can we call a divorced woman single?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="http://ell.stackexchange.com/questions/91465/i-did-my-best-vs-i-did-the-best-i-could" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    "I did my best" vs "I did the best I could"
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-chemistry" title="Chemistry Stack Exchange"></div><a href="http://chemistry.stackexchange.com/questions/52010/are-non-integer-oxidation-states-possible" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:431 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are Non-Integer Oxidation States Possible?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/329033/is-there-an-expression-to-indicate-the-strategy-of-wearing-someone-down-with-num" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there an expression to indicate the strategy of wearing someone down with numerous small irritations?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/1083043/how-to-get-evenly-spaced-letter-slots-for-forms-in-micrsoft-word" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to get evenly spaced letter slots for forms in Micrsoft Word
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="http://ux.stackexchange.com/questions/94972/why-do-editors-such-as-ms-office-apps-have-so-much-redundancy" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do editors (such as MS Office apps) have so much redundancy?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-dba" title="Database Administrators Stack Exchange"></div><a href="http://dba.stackexchange.com/questions/140043/alter-column-size-take-very-long-time" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:182 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    alter column size take very long time?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1805312/bee-flying-between-two-trains" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Bee flying between two trains
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-ethereum" title="Ethereum Stack Exchange"></div><a href="http://ethereum.stackexchange.com/questions/4503/how-was-the-name-ethereum-chosen" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:642 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How was the name "Ethereum" chosen?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/64635/if-you-cut-dollar-bills-in-half-and-then-put-them-back-together-are-they-still" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If you cut dollar bills in half and then put them back together, are they still valid?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="http://gaming.stackexchange.com/questions/267513/do-settlers-need-ammunition" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do settlers need ammunition?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/69560/is-my-doctorate-good-enough" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is my doctorate good enough?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-chemistry" title="Chemistry Stack Exchange"></div><a href="http://chemistry.stackexchange.com/questions/52037/why-does-kcl-come-in-amber-coloured-bottles" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:431 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does KCl come in amber coloured bottles?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/80980/how-does-fire-work-in-dd" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How does fire work in D&amp;D?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/80941/help-a-player-wont-stop-hitting-on-every-female-npc" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Help, a player won't stop hitting on every female NPC!
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="http://askubuntu.com/questions/780217/why-does-moving-images-take-longer-than-moving-folders" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does moving images take longer than moving folders?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://unix.stackexchange.com/feeds/question/286839" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/286839/ivc/8c25');});
+</script>
+<noscript>
+    <div><img src="/posts/286839/ivc/8c25" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-sh</div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="http://stackoverflow.com/company/about">about us</a>
+                        <a href="http://unix.stackexchange.com/tour">tour</a>
+                    <a href="http://unix.stackexchange.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackexchange.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackoverflow.com/company/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="http://unix.stackexchange.com/contact">contact us</a></b>
+                        <b><a href="http://meta.unix.stackexchange.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2016 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2016.6.1.3627
+            </div>
+                <div id="additional-notices">
+                    Linux is a registered trademark of Linus Torvalds. UNIX is a registered trademark of The Open Group. <br>This site is not affiliated with Linus Torvalds or The Open Group in any way.
+                </div>
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Unix &amp; Linux Stack Exchange works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    
+    
+        
+        ados.run.push(function () {
+                ados_setKeywords('shell,shell-script,x-community,x-host-unix.stackexchange.com');; ados_load();
+        });   
+        
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-24', {'cookieDomain': 'stackexchange.com'});
+                        ga('set', 'dimension2', '|shell|shell-script|');         ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+                
+    </script>
+        
+    
+    
+</body></html>
