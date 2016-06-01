@@ -46,4 +46,4 @@ class TagFrequency(object):
         vector = np.zeros((len(self.dictionary),))
         for index in to_index:
             vector[index] += 1
-        return np.array(vector)
+        return vector/np.sum(vector)
