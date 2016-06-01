@@ -6,6 +6,9 @@ The dimension of the vectors will change as new pages with new tags or class att
 Also a simple outlier detection is available and enabled by default. This allows for rejecting web pages
 that are highly improbable to belong to any cluster.
 
+# Install
+    pip install page_clustering
+
 # Usage
     import page_clustering
 
@@ -21,3 +24,68 @@ that are highly improbable to belong to any cluster.
 # Demo
     wget -r --quota=5M https://news.ycombinator.com
     python demo.py news.ycombinator.com
+
+# Tests
+    cd tests
+    py.test
+
+# Algorithm
+
+The first part, vectorization, transforms the web page to a vector. For example,
+take the following page:
+
+```html
+<html>
+<body>
+<ul class="list1">
+    <li>A</li>
+	<li>B</li>
+</ul>
+<ul class="list2">
+    <li>Y</li>
+	<li>Z</li>
+</ul>
+</body>
+</html>
+```
+
+Each non-closing (tag, class) pair is mapped to a vector position and the number
+of times it appears in the document is the value of the vector at that position.
+
+| tag, class | position | count |
+|------------|----------|-------|
+| html       | 0        | 1     |
+| body       | 1        | 1     |
+| ul, list1  | 2        | 1     |
+| li         | 3        | 4     |
+| ul, list2  | 4        | 1     |
+
+The vector is therefore `[1, 1, 1, 4, 1]`
+
+When a new page arrives it can be possible that new (tag, class) pairs appear.
+For example imagine that this new page arrives:
+
+```html
+<html>
+<body>
+<p>Another page with a paragraph tag </p>
+</body>
+</html>
+```
+
+The new page would be mapped according to this table:
+
+| tag, class | position | count |
+|------------|----------|-------|
+| html       | 0        | 1     |
+| body       | 1        | 1     |
+| ul, list1  | 2        | 0     |
+| li         | 3        | 0     |
+| ul, list2  | 4        | 0     |
+| p          | 5        | 1     |
+
+The vector for this page would be `[1, 1, 0, 0, 0, 1]`.
+The new vector has 6 dimensions, this means that the previous page vector needs
+to be extended accordingly with zeros to the right: ``[1, 1, 1, 4, 1, 0]`.
+
+Once all needed pages are vectorized, KMeans is applied.
