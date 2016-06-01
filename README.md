@@ -1,4 +1,4 @@
-# Description
+# Description [![Build Status](https://travis-ci.org/scrapinghub/page_clustering.svg?branch=master)](https://travis-ci.org/scrapinghub/page_clustering)
 A simple algorithm for clustering web pages.
 A wrapper around [KMeans](http://scikit-learn.org/stable/modules/generated/sklearn.cluster.MiniBatchKMeans.html#sklearn.cluster.MiniBatchKMeans).
 Web pages are converted to vectors, where each vector entry is just the count of a given tag and class attribute.
