@@ -60,7 +60,9 @@ of times it appears in the document is the value of the vector at that position.
 | li         | 3        | 4     |
 | ul, list2  | 4        | 1     |
 
-The vector is therefore `[1, 1, 1, 4, 1]`
+The vector is therefore `[1, 1, 1, 4, 1]`. This vector is normalized so that
+it's elements sum up to 1 and the final frequency vector is:
+`[0.125, 0.125, 0.125, 0.5, 0.125]`
 
 When a new page arrives it can be possible that new (tag, class) pairs appear.
 For example imagine that this new page arrives:
@@ -84,8 +86,10 @@ The new page would be mapped according to this table:
 | ul, list2  | 4        | 0     |
 | p          | 5        | 1     |
 
-The vector for this page would be `[1, 1, 0, 0, 0, 1]`.
+The vector for this page would be `[1, 1, 0, 0, 0, 1]`, and with normalization:
+`[0.33, 0.33, 0, 0, 0, 0.33]`.
+
 The new vector has 6 dimensions, this means that the previous page vector needs
-to be extended accordingly with zeros to the right: `[1, 1, 1, 4, 1, 0]`.
+to be extended accordingly with zeros to the right: `[0.125, 0.125, 0.125, 0.5, 0.125, 0]`.
 
 Once all needed pages are vectorized, KMeans is applied.
