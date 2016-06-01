@@ -86,6 +86,6 @@ The new page would be mapped according to this table:
 
 The vector for this page would be `[1, 1, 0, 0, 0, 1]`.
 The new vector has 6 dimensions, this means that the previous page vector needs
-to be extended accordingly with zeros to the right: ``[1, 1, 1, 4, 1, 0]`.
+to be extended accordingly with zeros to the right: `[1, 1, 1, 4, 1, 0]`.
 
 Once all needed pages are vectorized, KMeans is applied.
