@@ -104,7 +104,8 @@ ALL = [
 
 
 def load_page(name, path='stackoverflow'):
-    with open(os.path.join(path, name), 'r') as f:
+    datadir = os.environ.get('DATAPATH', '.')
+    with open(os.path.join(datadir, path, name), 'r') as f:
         body = f.read()
     return hp.HtmlPage(url=name, body=body.decode('utf-8'))
 
