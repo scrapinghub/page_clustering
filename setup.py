@@ -10,7 +10,11 @@ setup(
         'scikit-learn',
         'scrapely',
     ],
+    url              = 'https://github.com/scrapinghub/page_clustering',
+    maintainer       = 'Pedro Lopez-Adeva Fernandez-Layos',
+    maintainer_email = 'pedro@scrapinghub.com',
     keywords         = ['crawler', 'scrapy', 'scrapely', 'web'],
+    description      = 'Online k-means clustering of web pages',
     classifiers      = [
         #'Framework :: Crawl Frontier',
         'Development Status :: 4 - Beta',
