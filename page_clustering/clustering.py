@@ -142,6 +142,8 @@ def kmeans_from_samples(samples):
     Returns : OnlineKMeans
     """
     def build_htmlpage(sample):
+        if isinstance(sample, hp.HtmlPage):
+            return sample
         if isinstance(sample, (str, unicode)):
             url = ''
             body = sample
